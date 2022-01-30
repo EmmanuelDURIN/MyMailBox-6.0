@@ -15,6 +15,7 @@ namespace MyMailBox_6._0.Controllers
 
     public IActionResult Index()
     {
+      ViewBag.Date = DateTime.Now;
       return View();
     }
 
