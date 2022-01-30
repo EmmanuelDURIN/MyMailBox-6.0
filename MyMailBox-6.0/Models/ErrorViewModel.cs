@@ -1,4 +1,4 @@
-namespace MyMailBox_6._0.Models
+namespace MyMailBox.Models
 {
   public class ErrorViewModel
   {

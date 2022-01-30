@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MyMailBox_6._0.Models;
+using MyMailBox.Models;
 using System.Diagnostics;
 
-namespace MyMailBox_6._0.Controllers
+namespace MyMailBox.Controllers
 {
   public class HomeController : Controller
   {

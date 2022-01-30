@@ -24,4 +24,10 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+app.MapControllerRoute(
+    name: "discount",
+    pattern: "boites-aux-lettres/{reference}",
+    defaults: new { controller = "MailBox", action = "Index" }
+    );
+
 app.Run();
