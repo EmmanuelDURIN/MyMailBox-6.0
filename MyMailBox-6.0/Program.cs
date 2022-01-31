@@ -3,11 +3,17 @@ using MyMailBox.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+ConfigurationManager configuration = builder.Configuration;
+string connectionString = configuration["MailBoxConnectionString"];
+MailBoxContextFactory.ConnectionString = connectionString;
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<MailBoxContext>(
         options => options.UseSqlServer(MailBoxContextFactory.ConnectionString));
 //builder.Services.FillDb();
+
+
 
 var app = builder.Build();
 
@@ -51,3 +57,10 @@ app.MapControllerRoute(
                     );
 
 app.Run();
+
+//void ConfigureServices(IServiceCollection services, IConfiguration configuration)
+//{
+//  string connectionString = configuration["MailBoxConnectionString"];
+//  MailBoxContextFactory.ConnectionString = connectionString;
+//}
+
