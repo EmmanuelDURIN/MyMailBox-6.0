@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using MyMailBox.Controllers;
 using MyMailBox.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,8 +13,6 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<MailBoxContext>(
         options => options.UseSqlServer(MailBoxContextFactory.ConnectionString));
 //builder.Services.FillDb();
-
-
 
 var app = builder.Build();
 
@@ -47,12 +46,12 @@ app.MapControllerRoute(
 app.MapControllerRoute(
     name: "discount",
     pattern: "boites-aux-lettres/{reference}",
-    defaults: new { controller = "MailBox", action = "Index" }
+    defaults: new { controller = "MailBox", action = nameof(MailBoxesController.DetailsByReference) }
     );
 app.MapControllerRoute(
                     name: "ErrorRoute",
                     pattern: "errors/error-{status}",
-                    defaults: new { controller = "Home", action = "CustomError" },
+                    defaults: new { controller = "Home", action = nameof(HomeController.CustomError) },
                     constraints: new { status = "\\d+" }
                     );
 

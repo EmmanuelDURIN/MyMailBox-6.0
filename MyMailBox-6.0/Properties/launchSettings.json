@@ -11,7 +11,7 @@
     "MyMailBox_6._0": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "mailbox/BadHttp",
+      "launchUrl": "mailbox",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
