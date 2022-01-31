@@ -1,7 +1,13 @@
+using Microsoft.EntityFrameworkCore;
+using MyMailBox.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<MailBoxContext>(
+        options => options.UseSqlServer(MailBoxContextFactory.ConnectionString));
+//builder.Services.FillDb();
 
 var app = builder.Build();
 
