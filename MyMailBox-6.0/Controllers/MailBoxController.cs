@@ -16,5 +16,13 @@ namespace MyMailBox.Controllers
         return NotFound("No such Mailbox");
       return View(mailBox);
     }
+    public IActionResult BadHttp()
+    {
+      return StatusCode(400);
+    }
+    public IActionResult CustomError(int status)
+    {
+      return View(status);
+    }
   }
 }

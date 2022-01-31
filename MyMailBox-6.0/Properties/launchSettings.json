@@ -11,7 +11,7 @@
     "MyMailBox_6._0": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "mailbox/index?reference=X425",
+      "launchUrl": "mailbox/BadHttp",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

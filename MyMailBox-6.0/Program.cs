@@ -20,6 +20,14 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+//app.UseStatusCodePages(async context =>
+//{
+//  context.HttpContext.Response.ContentType = "text/plain";
+//  await context.HttpContext.Response.WriteAsync(
+//      "Sorry, status code page, status code: " +
+//      context.HttpContext.Response.StatusCode);
+//});
+app.UseStatusCodePagesWithRedirects("~/errors/error-{0}");
 app.UseStaticFiles();
 
 app.UseRouting();
@@ -35,5 +43,11 @@ app.MapControllerRoute(
     pattern: "boites-aux-lettres/{reference}",
     defaults: new { controller = "MailBox", action = "Index" }
     );
+app.MapControllerRoute(
+                    name: "ErrorRoute",
+                    pattern: "errors/error-{status}",
+                    defaults: new { controller = "Home", action = "CustomError" },
+                    constraints: new { status = "\\d+" }
+                    );
 
 app.Run();

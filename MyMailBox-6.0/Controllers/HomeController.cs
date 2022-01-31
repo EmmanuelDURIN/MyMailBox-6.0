@@ -23,6 +23,10 @@ namespace MyMailBox.Controllers
     {
       return View();
     }
+    public IActionResult CustomError(int status)
+    {
+      return View(status);
+    }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
