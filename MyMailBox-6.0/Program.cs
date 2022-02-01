@@ -8,6 +8,8 @@ ConfigurationManager configuration = builder.Configuration;
 string connectionString = configuration["MailBoxConnectionString"];
 MailBoxContextFactory.ConnectionString = connectionString;
 
+
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<MailBoxContext>(
